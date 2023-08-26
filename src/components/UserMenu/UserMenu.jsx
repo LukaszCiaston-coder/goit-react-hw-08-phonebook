@@ -1,6 +1,6 @@
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate, Link } from 'react-router-dom';
 import { logOut } from '../../redux/Auth/Actions';
 import { userName } from '../../redux/Auth/Selectors';
 import style from './UserMenu.module.css';
@@ -16,19 +16,14 @@ export const UserMenu = () => {
   };
 
   return (
-    <UserMenuContainer className={style.UserMenuContainer}>
-      <StyledLink to="/contacts" className={style.StyledLink}>
+    <div className={style.UserMenuContainer}>
+      <Link to="/contacts" className={style.StyledLink}>
         Contacts
-      </StyledLink>
-      <UserInfo className={style.UserInfo}>Welcome: {user}</UserInfo>
-      <UserButton
-        className={style.UserButton}
-        type="button"
-        onClick={handleLogout}
-      >
+      </Link>
+      <div className={style.UserInfo}>Welcome: {user}</div>
+      <button className={style.UserButton} type="button" onClick={handleLogout}>
         Logout
-      </UserButton>
-    </UserMenuContainer>
+      </button>
+    </div>
   );
 };
-export default UserMenu;
