@@ -1,0 +1,14 @@
+.homeContainer {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.homeTitle {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.homeText {
+  font-size: 16px;
+  color: #555;
+}

@@ -1,0 +1,41 @@
+.UserMenuContainer {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.StyledLink {
+  text-decoration: none;
+  color: #007bff;
+  margin-right: 15px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.StyledLink:hover {
+  color: #0056b3;
+}
+
+.UserInfo {
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.UserButton {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.UserButton:hover {
+  background-color: #c82333;
+}
+
+.UserButton:active {
+  background-color: #a71d2a;
+}

@@ -1,76 +1,95 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../Features/ContactSlice';
+import { useRef } from 'react';
+
+import { addContact } from '../../redux/Contacts/Actions';
+import { getContacts } from '../../redux/Contacts/Selectors';
 import styles from './ContactForm.module.css';
-import { selectContactByPhone } from '../Features/ContactSlice';
-import Notiflix from 'notiflix';
 
 const ContactForm = () => {
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
-  const isDuplicatePhone = useSelector(selectContactByPhone);
+  const nameInputRef = useRef();
+  const numberInputRef = useRef();
 
-  const handleChangeName = event => {
-    setName(event.target.value);
+  const isInContacts = (name, number) => {
+    const normalizedName = name.toLowerCase().trim();
+    const normalizedNumber = number.toLowerCase().trim();
+
+    return contacts.some(
+      contact =>
+        contact.name.toLowerCase().trim() === normalizedName ||
+        contact.number.toLowerCase().trim() === normalizedNumber
+    );
   };
 
-  const handleChangePhone = event => {
-    setPhone(event.target.value);
+  const isDataPatternValid = (name, number) => {
+    const namePattern = new RegExp(nameInputRef.current.pattern);
+    const numberPattern = new RegExp(numberInputRef.current.pattern);
+
+    const isNameValid = namePattern.test(name);
+    const isNumberValid = numberPattern.test(number);
+
+    let errorMessage = '';
+    if (!isNameValid) {
+      errorMessage += 'Invalid name input. ';
+    }
+    if (!isNumberValid) {
+      errorMessage += 'Invalid number input.';
+    }
+    if (errorMessage) {
+      return errorMessage;
+    }
   };
 
-  const handleSubmit = async event => {
+  const handlesubmit = event => {
+    const form = event.target;
     event.preventDefault();
+    const nameValue = event.target.elements.name.value;
+    const numberValue = event.target.elements.number.value;
 
-    if (isDuplicatePhone(phone)) {
-      Notiflix.Notify.failure('Contact with this phone number already exists.');
-      return;
+    const errorMessage = isDataPatternValid(nameValue, numberValue);
+    if (errorMessage) {
+      return alert(errorMessage);
     }
 
-    try {
-      await dispatch(addContact({ name, phone }));
-      setName('');
-      setPhone('');
-      Notiflix.Notify.success('Contact added successfully.');
-    } catch (error) {
-      console.error('Error adding contact:', error);
-      Notiflix.Notify.failure('Error adding contact. Please try again.');
+    if (isInContacts(nameValue, numberValue)) {
+      return alert(`${nameValue} already in contacts`);
     }
+
+    dispatch(addContact({ name: nameValue, number: numberValue }));
+    form.reset();
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.contactForm}>
-      <div className={styles.labelContainer}>
-        <label htmlFor="name" className={styles.label}>
-          Name:
-        </label>
+    <div>
+      <h1>Phonebook</h1>
+      <form onSubmit={handlesubmit} className={styles.contact}>
+        <span>Name:</span>
         <input
           type="text"
-          id="name"
           name="name"
-          value={name}
-          onChange={handleChangeName}
-          className={styles.input}
+          pattern="^[a-zA-Z]+( [a-zA-Z]+)?$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+          placeholder="Type name as John Doe"
+          ref={nameInputRef}
         />
-      </div>
-      <div className={styles.labelContainer}>
-        <label htmlFor="phone" className={styles.label}>
-          Phone Number:
-        </label>
+        <span>Number:</span>
         <input
           type="tel"
-          id="phone"
-          name="phone"
-          value={phone}
-          onChange={handleChangePhone}
-          className={styles.input}
+          name="number"
+          pattern="^\d{1,3}([- ]?\d{1,3}){2,3}$"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          placeholder="Type number as 000-00-00"
+          ref={numberInputRef}
         />
-      </div>
-      <button type="submit" className={styles.button}>
-        Add Contact
-      </button>
-    </form>
+        <button type="submit" className={styles.contact__button}>
+          Add contact
+        </button>
+      </form>
+    </div>
   );
 };
 

@@ -1,92 +1,46 @@
-.contactList {
-  list-style: none;
-  padding: 0;
-  position: relative;
-}
-
-.contactItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-.contactName {
-  font-weight: bold;
-  width: 200px;
-  margin-right: 5px;
-}
-
-.contactPhone {
-  color: #666;
-  width: 200px;
-}
-
-.deleteButton {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: red;
-  width: 30px;
-}
-
-.modal {
-  font-family: Arial, sans-serif;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 100%;
-}
-
-.modalContent {
-  background: white;
+.list {
+  margin-top: 20px;
   padding: 20px;
-  border-radius: 4px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 80%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.modalHeader {
-  font-size: 1.2rem;
-  font-weight: bold;
+.list h2 {
+  font-size: 20px;
   margin-bottom: 10px;
 }
 
-.modalBody {
-  margin-bottom: 20px;
+.list ul {
+  list-style: none;
+  padding: 0;
 }
 
-.modalFooter {
+.list ul li {
+  font-size: 16px;
+  margin-bottom: 10px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
 }
 
-.modalButton {
-  background: none;
-  border: none;
-  cursor: pointer;
+.list ul li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.list ul li button {
   padding: 5px 10px;
-  border-radius: 4px;
-  margin-left: 10px;
-}
-
-.modalButton:first-child {
-  background-color: #ccc;
-}
-
-.modalButton:last-child {
-  background-color: #ff6666;
+  background-color: #dc3545;
   color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.list ul li button:hover {
+  background-color: #c82333;
 }

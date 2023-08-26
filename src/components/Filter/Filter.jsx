@@ -1,24 +1,28 @@
+import { useDispatch } from 'react-redux';
+import { filterContacts } from '../../redux/Contacts/FilterSlice';
 import styles from './Filter.module.css';
 
-const Filter = ({ value, onChange }) => {
-  const handleChange = event => {
-    onChange(event.target.value);
+const Filter = () => {
+  const dispatch = useDispatch();
+
+  const handleFiltredContacts = event => {
+    event.preventDefault();
+    const filteredContact = event.target.value;
+    dispatch(filterContacts(filteredContact.toLowerCase().trim()));
   };
 
   return (
     <div className={styles.filter}>
-      <label className={styles.label}>
-        Find contact by name:
-        <input
-          type="text"
-          value={value}
-          onChange={handleChange}
-          className={styles.input}
-          pattern="^[^[a-zA-Za]+(([' \-][a-zA-Za])?[a-zA-Za]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-      </label>
+      <span>Find contacts by name: </span>
+      <input
+        type="text"
+        name="filter"
+        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        required
+        onChange={handleFiltredContacts}
+        placeholder="Search by name"
+      />
     </div>
   );
 };

@@ -1,82 +1,20 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { deleteContact } from '../Features/ContactSlice';
+import { useSelector } from 'react-redux';
+import Contact from '../Contact/Contact'; // Importujemy jako default
+import { getfilteredContacts } from '../../redux/Contacts/Selectors';
 import styles from './ContactList.module.css';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Modal } from 'react-bootstrap';
 
-const ContactListItem = ({ contact, onDelete }) => {
-  const [showModal, setShowModal] = useState(false);
-
-  const handleOpenModal = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
-  const handleDeleteClick = () => {
-    onDelete(contact.id);
-    handleCloseModal();
-  };
+export const ContactList = ({ children }) => {
+  const filteredContacts = useSelector(getfilteredContacts);
 
   return (
-    <li key={contact.id} className={styles.contactItem}>
-      <span className={styles.contactName}>{contact.name}</span>
-      <span className={styles.contactPhone}>{contact.phone}</span>
-      <button className={styles.deleteButton} onClick={handleOpenModal}>
-        <FontAwesomeIcon icon={faTrash} />
-      </button>
-
-      <Modal
-        show={showModal}
-        onHide={handleCloseModal}
-        className={styles.modal}
-      >
-        <div className={styles.modalContent}>
-          <div className={styles.modalHeader}>Contact Details</div>
-          <div className={styles.modalBody}>
-            <p>Name: {contact.name}</p>
-            <p>Phone: {contact.phone}</p>
-          </div>
-          <div className={styles.modalFooter}>
-            <button className={styles.modalButton} onClick={handleCloseModal}>
-              Close
-            </button>
-            <button className={styles.modalButton} onClick={handleDeleteClick}>
-              Delete
-            </button>
-          </div>
-        </div>
-      </Modal>
-    </li>
+    <div className={styles.list}>
+      <h2>Contacts</h2>
+      {children}
+      <ul>
+        {filteredContacts.map(contact => (
+          <Contact contact={contact} key={contact.id} />
+        ))}
+      </ul>
+    </div>
   );
 };
-
-const ContactList = ({ contacts }) => {
-  const dispatch = useDispatch();
-
-  const handleDeleteContact = async contactId => {
-    try {
-      await dispatch(deleteContact(contactId));
-    } catch (error) {
-      console.error('Error deleting contact:', error);
-    }
-  };
-
-  return (
-    <ul className={styles.contactList}>
-      {contacts.map(contact => (
-        <ContactListItem
-          key={contact.id}
-          contact={contact}
-          onDelete={handleDeleteContact}
-        />
-      ))}
-    </ul>
-  );
-};
-
-export default ContactList;

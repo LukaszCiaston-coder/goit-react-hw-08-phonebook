@@ -1,0 +1,45 @@
+.Container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.Header {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Link {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+
+.Link:hover {
+  color: #f47e60;
+}
+
+.RegisterMenuContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.RegisterMenuContainer a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.RegisterMenuContainer a:hover {
+  color: #f47e60;
+}

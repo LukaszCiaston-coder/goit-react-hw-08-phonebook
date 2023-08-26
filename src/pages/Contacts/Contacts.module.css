@@ -1,0 +1,13 @@
+.contacts-container {
+  background-color: lightgray;
+  padding: 20px;
+}
+
+.loading-message {
+  font-style: italic;
+  color: blue;
+}
+
+.error-message {
+  color: red;
+}
