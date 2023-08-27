@@ -22,7 +22,7 @@ export const RegisterPage = () => {
 
   return (
     <div className={styles.registerPageContainer}>
-      <h1 className={styles.registerPageTitle}>Register user:</h1>
+      <h1 className={styles.registerPageTitle}>REGISTER:</h1>
       <Register />
     </div>
   );

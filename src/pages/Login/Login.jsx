@@ -22,7 +22,7 @@ export const LoginPage = () => {
 
   return (
     <div className={styles.loginPageContainer}>
-      <h1 className={styles.loginPageTitle}>Login user:</h1>
+      <h1 className={styles.loginPageTitle}>LOGIN:</h1>
       <LoginForm />
     </div>
   );

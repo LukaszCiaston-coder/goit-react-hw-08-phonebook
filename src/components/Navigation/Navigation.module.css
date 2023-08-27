@@ -1,13 +1,15 @@
 .Container {
-  max-width: 960px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding-bottom: 20px;
+  background-color: lightgray;
+  height: 100vh;
 }
 
 .Header {
   background-color: #333;
   color: white;
-  padding: 10px 0;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
 }
 
 nav {
@@ -42,4 +44,10 @@ nav {
 
 .RegisterMenuContainer a:hover {
   color: #f47e60;
+}
+.ActiveLink {
+  background-color: #f47e60;
+  color: white;
+  border-radius: 4px;
+  padding: 5px;
 }
