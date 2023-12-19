@@ -1,6 +1,4 @@
-/* LogInForm.module.css */
-
-.form {
+.loginForm {
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -8,36 +6,75 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px rgb(0 0 0 / 10%);
+  position: relative;
 }
 
-.label {
+.loginInputContainer {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  font-size: 16px;
-  margin-bottom: 8px;
-  font-weight: bold;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 8px;
+}
+.loginInputContainer:hover,
+.loginInputContainer.focus {
+  border: 2px solid #ccc;
+}
+.loginIcon {
+  margin-right: 8px;
+  color: rgba(248, 247, 245, 0.8);
 }
 
 input {
+  flex: 1;
   padding: 8px;
   font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-bottom: 15px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: rgba(248, 247, 245, 0.8);
 }
 
-button {
+input::placeholder {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: rgba(250, 248, 248, 0.8);
+  transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+
+.loginInputContainer.focus input::placeholder,
+.loginInputContainer input:focus::placeholder {
+  top: 3px;
+  font-size: 10px;
+  color: rgba(250, 248, 248, 0.5);
+}
+
+.loginButton {
   padding: 10px 15px;
-  background-color: #007bff;
+  background-color: rgba(0, 123, 255, 0.8);
   color: white;
   border: none;
-  border-radius: 3px;
+  border-radius: 10px 30px 10px 30px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #0056b3;
+.loginButton:hover {
+  background-color: rgba(46, 204, 113, 0.8);
+}
+
+.toRegister {
+  margin-top: 10px;
+  text-decoration: none;
+  text-decoration-line: underline;
+  color: #fffdfd;
+}
+.toRegister:hover {
+  font-size: 18px; /* Możesz dostosować rozmiar czcionki według swoich preferencji */
 }

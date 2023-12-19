@@ -1,15 +1,66 @@
+/* Register.module.css */
+
 .registerPageContainer {
   text-align: center;
-  margin-top: 50px;
   font-family: 'Roboto', sans-serif;
 }
 
-.registerPageTitle {
-  font-size: 24px;
-  margin-bottom: 10px;
+.registerImage {
+  display: none;
 }
 
 .registerPageSubTitle {
   font-size: 16px;
   color: #555;
+}
+
+@media (min-width: 678px) and (max-width: 1199px) {
+  .registerPageContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .registerImage {
+    display: block;
+    max-width: 400px;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .registerFormContainer {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}
+
+@media (min-width: 1200px) {
+  .registerPageContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .registerImage {
+    display: block;
+    max-width: 800px;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .registerFormContainer {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}
+
+/* Apply margin-top only for mobile devices */
+@media (max-width: 677px) {
+  .registerFormContainer {
+    margin-top: 50px;
+  }
 }

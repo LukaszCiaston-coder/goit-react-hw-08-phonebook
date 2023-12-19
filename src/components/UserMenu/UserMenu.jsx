@@ -3,6 +3,8 @@ import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { logOut } from '../../redux/Auth/Actions';
 import { userEmail } from '../../redux/Auth/Selectors';
 import style from './UserMenu.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAddressBook, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 export const UserMenu = () => {
   const email = useSelector(userEmail);
@@ -23,7 +25,7 @@ export const UserMenu = () => {
           location.pathname === '/contacts' && style.ActiveLink
         }`}
       >
-        ☎ Contacts
+        <FontAwesomeIcon icon={faAddressBook} />
       </Link>
       <div className={style.UserMenu}>
         <div className={style.UserInfo}>Welcome: {email}</div>{' '}
@@ -32,7 +34,7 @@ export const UserMenu = () => {
           type="button"
           onClick={handleLogout}
         >
-          Logout
+          <FontAwesomeIcon icon={faSignOutAlt} /> Logout
         </button>
       </div>
     </div>

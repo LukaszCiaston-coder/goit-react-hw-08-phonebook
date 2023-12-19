@@ -42,8 +42,6 @@
   background-color: #0056b3;
 }
 .ActiveLink {
-  background-color: #f47e60;
-  color: white;
+  color: #2ecc71;
   border-radius: 4px;
-  padding: 5px;
 }

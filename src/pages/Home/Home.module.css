@@ -1,15 +1,74 @@
+/* Home.module.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .homeContainer {
-  text-align: center;
-  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   font-family: 'Roboto', sans-serif;
+}
+
+.imageContainer {
+  flex: 1;
+  background-image: url('../../images/kontakty.jpg');
+  position: relative;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.imageContainer img {
+  width: 100%;
+  height: auto;
+}
+
+.contentContainer {
+  z-index: 3;
+  text-align: center;
 }
 
 .homeTitle {
   font-size: 24px;
   margin-bottom: 10px;
+  color: #fff;
 }
 
-.homeText {
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.registerButton,
+.loginButton {
+  padding: 10px 20px;
   font-size: 16px;
-  color: #555;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 10px 30px 10px 30px;
+  cursor: pointer;
+  text-decoration: none; /* Dodane: Usunięcie podkreślenia dla linków */
+}
+
+.loginButton:hover,
+.registerButton:hover {
+  background-color: #2ecc71;
 }

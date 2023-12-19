@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { isUserLoged } from '../../redux/Auth/Selectors';
+import { isUserLogged } from '../../redux/Auth/Selectors';
 import { Register } from '../../components/Register/Register';
-import styles from './Register.module.css'; // Importuj style CSS
+import registerImage from '../../images/login.jpg';
+import styles from './Register.module.css';
 
 export const RegisterPage = () => {
-  const userIsLogged = useSelector(isUserLoged);
+  const userIsLogged = useSelector(isUserLogged);
   const navigate = useNavigate();
   const [hasRedirected, setHasRedirected] = useState(false);
 
@@ -22,8 +23,14 @@ export const RegisterPage = () => {
 
   return (
     <div className={styles.registerPageContainer}>
-      <h1 className={styles.registerPageTitle}>REGISTER:</h1>
-      <Register />
+      <img
+        className={styles.registerImage}
+        src={registerImage}
+        alt="Register"
+      />
+      <div className={styles.registerFormContainer}>
+        <Register />
+      </div>
     </div>
   );
 };

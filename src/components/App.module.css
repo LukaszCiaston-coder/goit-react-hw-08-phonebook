@@ -1,4 +1,6 @@
-.appContainer {
-  max-width: 2000px;
-  margin: 0 auto;
+body {
+  margin: 0;
+
+  background: linear-gradient(to right, #3498db, #2ecc71);
+  overflow: hidden;
 }

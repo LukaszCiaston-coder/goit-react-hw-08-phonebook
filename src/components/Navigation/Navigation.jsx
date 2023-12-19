@@ -1,14 +1,16 @@
 import { Suspense } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 import style from './Navigation.module.css';
 import { Loader } from '../Loader/Loader';
-import { isUserLoged } from '../../redux/Auth/Selectors';
+import { isUserLogged } from '../../redux/Auth/Selectors';
 import { UserMenu } from '../UserMenu/UserMenu';
 
 export const Navigation = () => {
-  const userIsLogged = useSelector(isUserLoged);
+  const userIsLogged = useSelector(isUserLogged);
   const location = useLocation();
 
   return (
@@ -21,31 +23,10 @@ export const Navigation = () => {
               location.pathname === '/' && style.ActiveLink
             }`}
           >
-            🏠 Home
+            <FontAwesomeIcon icon={faHome} />
           </Link>
 
-          {userIsLogged ? (
-            <UserMenu />
-          ) : (
-            <div className={style.RegisterMenuContainer}>
-              <Link
-                to="/login"
-                className={`${style.Link} ${
-                  location.pathname === '/login' && style.ActiveLink
-                }`}
-              >
-                🔑 Login
-              </Link>
-              <Link
-                to="/register"
-                className={`${style.Link} ${
-                  location.pathname === '/register' && style.ActiveLink
-                }`}
-              >
-                📝 Register
-              </Link>
-            </div>
-          )}
+          {userIsLogged && <UserMenu />}
         </nav>
       </div>
       <Suspense fallback={<Loader />}>

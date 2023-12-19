@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { isUserLoged } from '../../redux/Auth/Selectors';
+import { isUserLogged } from '../../redux/Auth/Selectors';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import styles from './Login.module.css';
+import loginImage from '../../images/login.jpg';
 
 export const LoginPage = () => {
-  const userIsLogged = useSelector(isUserLoged);
+  const userIsLogged = useSelector(isUserLogged);
   const navigate = useNavigate();
   const [hasRedirected, setHasRedirected] = useState(false);
 
@@ -22,8 +23,10 @@ export const LoginPage = () => {
 
   return (
     <div className={styles.loginPageContainer}>
-      <h1 className={styles.loginPageTitle}>LOGIN:</h1>
-      <LoginForm />
+      <img className={styles.loginImage} src={loginImage} alt="Login" />
+      <div className={styles.loginFormContainer}>
+        <LoginForm />
+      </div>
     </div>
   );
 };

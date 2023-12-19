@@ -1,53 +1,31 @@
 .Container {
-  margin: 0 auto;
-  padding-bottom: 20px;
-  background-color: lightgray;
-  height: 100vh;
+  background-color: #3498db;
+  color: #fff;
+  height: 36px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .Header {
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  font-family: 'Roboto', sans-serif;
-}
-
-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.Link {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  margin-right: 20px;
-  transition: color 0.3s ease;
-}
-
-.Link:hover {
-  color: #f47e60;
-}
-
-.RegisterMenuContainer {
+nav {
   display: flex;
-  gap: 20px;
+  align-items: center;
 }
 
-.RegisterMenuContainer a {
+.Link {
+  color: #fff;
   text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: color 0.3s ease;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
 }
 
-.RegisterMenuContainer a:hover {
-  color: #f47e60;
-}
 .ActiveLink {
-  background-color: #f47e60;
-  color: white;
+  color: #2ecc71;
   border-radius: 4px;
-  padding: 5px;
 }

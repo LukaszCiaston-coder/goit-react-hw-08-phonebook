@@ -4,7 +4,8 @@
   "private": true,
   "homepage": "https://lukaszciaston-coder.github.io/goit-react-hw-08-phonebook/",
   "dependencies": {
-    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@reduxjs/toolkit": "^1.9.5",
     "@remix-run/router": "^1.8.0",

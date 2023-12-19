@@ -1,15 +1,69 @@
+/* Assuming this is your existing CSS */
+
 .loginPageContainer {
   text-align: center;
-  margin-top: 50px;
   font-family: 'Roboto', sans-serif;
 }
 
-.loginPageTitle {
-  font-size: 24px;
-  margin-bottom: 10px;
+.loginImage {
+  display: none;
 }
 
 .loginPageSubTitle {
   font-size: 16px;
   color: #555;
+}
+
+@media (min-width: 678px) and (max-width: 1199px) {
+  .loginPageContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .loginImage {
+    display: block;
+    max-width: 400px;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .loginFormContainer {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}
+
+@media (min-width: 1200px) {
+  .loginPageContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .loginImage {
+    display: block;
+    max-width: 800px;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .loginFormContainer {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 677px) {
+  .loginPageContainer {
+    height: 100vh;
+  }
+
+  .loginFormContainer {
+    margin-top: 50px;
+  }
 }
