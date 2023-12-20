@@ -1,13 +1,20 @@
-.contacts-container {
+.contactsContainer {
   padding: 20px;
   font-family: 'Roboto', sans-serif;
 }
 
-.loading-message {
+.loadingMessage {
   font-style: italic;
   color: blue;
 }
 
-.error-message {
+.errorMessage {
   color: red;
+}
+@media (min-width: 1200px) {
+  .contactsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }

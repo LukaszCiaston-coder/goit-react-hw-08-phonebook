@@ -1,34 +1,19 @@
 .UserMenuContainer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-.UserMenu {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  background-color: #f0f0f0;
-  border-radius: 5px;
-}
-.StyledLink {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  margin-right: 20px;
-  transition: color 0.3s ease;
-}
-
-.StyledLink:hover {
-  color: #f47e60;
-}
-
-.UserInfo {
-  font-weight: bold;
-  color: black;
+  width: 100%;
   margin-right: 10px;
 }
 
+.UserInfo {
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 30px;
+}
+.UserInfo:hover {
+  color: #2ecc71;
+}
 .UserButton {
   padding: 0.5rem 1rem;
   background-color: #007bff;
@@ -36,12 +21,63 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .UserButton:hover {
   background-color: #0056b3;
 }
+
+.Link {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
 .ActiveLink {
   color: #2ecc71;
   border-radius: 4px;
+}
+
+.Modal {
+  font-family: 'Roboto', sans-serif;
+  position: absolute;
+  top: 15%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.logoutButton {
+  border: solid 1px #fff;
+  border-radius: 10px 30px 10px 30px;
+  margin: 10px 0;
+  height: 35px;
+  width: 80px;
+  background-color: transparent;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  color: #fff;
+}
+
+.logoutButton:hover {
+  background-color: #0eda63;
+  cursor: pointer;
+}
+/* Dodane style dla krzyżyka zamykającego */
+.ModalClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #fff;
 }

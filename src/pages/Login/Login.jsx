@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { isUserLogged } from '../../redux/Auth/Selectors';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
-import styles from './Login.module.css';
+import style from './Login.module.css';
 import loginImage from '../../images/login.jpg';
 
 export const LoginPage = () => {
@@ -22,9 +22,9 @@ export const LoginPage = () => {
   }, [userIsLogged, navigate, hasRedirected]);
 
   return (
-    <div className={styles.loginPageContainer}>
-      <img className={styles.loginImage} src={loginImage} alt="Login" />
-      <div className={styles.loginFormContainer}>
+    <div className={style.loginPageContainer}>
+      <img className={style.loginImage} src={loginImage} alt="Login" />
+      <div className={style.loginFormContainer}>
         <LoginForm />
       </div>
     </div>

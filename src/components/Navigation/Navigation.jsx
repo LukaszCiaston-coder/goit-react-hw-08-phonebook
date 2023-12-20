@@ -15,20 +15,23 @@ export const Navigation = () => {
 
   return (
     <div className={style.Container}>
-      <div className={style.Header}>
-        <nav>
-          <Link
-            to="/"
-            className={`${style.Link} ${
-              location.pathname === '/' && style.ActiveLink
-            }`}
-          >
-            <FontAwesomeIcon icon={faHome} />
-          </Link>
+      <nav className={style.Navigation}>
+        <Link
+          to="/"
+          className={`${style.Link} ${
+            location.pathname === '/' && style.ActiveLink
+          }`}
+        >
+          <FontAwesomeIcon icon={faHome} />
+        </Link>
 
-          {userIsLogged && <UserMenu />}
-        </nav>
-      </div>
+        {userIsLogged && (
+          <div className={style.UserMenuContainer}>
+            <UserMenu />
+          </div>
+        )}
+      </nav>
+
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>

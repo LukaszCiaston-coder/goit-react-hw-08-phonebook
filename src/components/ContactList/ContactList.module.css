@@ -22,13 +22,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ccc;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   padding-bottom: 5px;
-}
-
-.list ul li:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
 }
 
 .list ul li button {

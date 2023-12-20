@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { filterContacts } from '../../redux/Contacts/FilterSlice';
-import styles from './Filter.module.css';
+import style from './Filter.module.css';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -12,9 +12,10 @@ const Filter = () => {
   };
 
   return (
-    <div className={styles.filter}>
+    <div className={style.filter}>
       <span>Find contacts by name: </span>
       <input
+        className={style.filterInput}
         type="text"
         name="filter"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"

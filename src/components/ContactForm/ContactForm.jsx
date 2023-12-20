@@ -3,7 +3,7 @@ import { useRef } from 'react';
 
 import { addContact } from '../../redux/Contacts/Actions';
 import { getContacts } from '../../redux/Contacts/Selectors';
-import styles from './ContactForm.module.css';
+import style from './ContactForm.module.css';
 
 const ContactForm = () => {
   const contacts = useSelector(getContacts);
@@ -64,28 +64,30 @@ const ContactForm = () => {
   return (
     <div>
       <h1>Phonebook</h1>
-      <form onSubmit={handlesubmit} className={styles.contact}>
-        <span>Name:</span>
+      <form onSubmit={handlesubmit} className={style.contactAdd}>
+        <span>Add your contact</span>
         <input
+          className={style.contactInput}
           type="text"
           name="name"
           pattern="^[a-zA-Z]+( [a-zA-Z]+)?$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
-          placeholder="Type name as John Doe"
+          placeholder="Type contact name"
           ref={nameInputRef}
         />
-        <span>Number:</span>
+
         <input
+          className={style.contactInput}
           type="tel"
           name="number"
           pattern="^\d{1,3}([- ]?\d{1,3}){2,3}$"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
-          placeholder="Type number as 000-00-00"
+          placeholder="Type contact number as 000-00-00"
           ref={numberInputRef}
         />
-        <button type="submit" className={styles.contact__button}>
+        <button type="submit" className={style.contactButton}>
           Add contact
         </button>
       </form>

@@ -6,11 +6,11 @@ import { RegisterPage } from '../pages/Register/Register';
 import { NotFound } from '../pages/NotFound/NotFound';
 
 import { Navigation } from '../components/Navigation/Navigation';
-import styles from './App.module.css';
+import style from './App.module.css';
 
 export const App = () => {
   return (
-    <div className={styles.appContainer}>
+    <div className={style.appContainer}>
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />

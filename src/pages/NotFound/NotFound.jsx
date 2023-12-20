@@ -1,8 +1,8 @@
-import styles from './NotFound.module.css';
+import style from './NotFound.module.css';
 
 export const NotFound = () => {
   return (
-    <main className={styles.main}>
+    <main className={style.main}>
       <p>Sorry, page not found</p>
     </main>
   );

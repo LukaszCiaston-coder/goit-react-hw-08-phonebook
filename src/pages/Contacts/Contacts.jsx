@@ -1,11 +1,11 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import { ContactList } from '../../components/ContactList/ContactList';
 import Filter from '../../components/Filter/Filter';
 import { fetchContacts } from '../../redux/Contacts/Actions';
-import styles from './Contacts.module.css'; // Adjust the path accordingly
+import { Loader } from '../../components/Loader/Loader';
+import style from './Contacts.module.css';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
@@ -18,14 +18,10 @@ export const Contacts = () => {
   const isError = useSelector(state => state.contacts.error);
 
   return (
-    <div className={styles['contacts-container']}>
+    <div className={style.contactsContainer}>
       <ContactForm />
-      {isLoading && !isError && (
-        <p className={styles['loading-message']}>Fetching data...</p>
-      )}
-      {isError && (
-        <p className={styles['error-message']}>Something went wrong</p>
-      )}
+      {isLoading && !isError && <Loader />}{' '}
+      {isError && <p className={style.errorMessage}>Something went wrong</p>}
       <ContactList>
         <Filter />
       </ContactList>

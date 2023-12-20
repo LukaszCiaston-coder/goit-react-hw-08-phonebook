@@ -1,0 +1,21 @@
+.filterInput {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  background-color: transparent;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 10px;
+  color: rgba(248, 247, 245, 0.8);
+  width: 300px;
+}
+
+.filterInput::placeholder {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: rgba(250, 248, 248, 0.8);
+  transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}

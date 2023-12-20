@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { isUserLogged } from '../../redux/Auth/Selectors';
 import { Register } from '../../components/Register/Register';
 import registerImage from '../../images/login.jpg';
-import styles from './Register.module.css';
+import style from './Register.module.css';
 
 export const RegisterPage = () => {
   const userIsLogged = useSelector(isUserLogged);
@@ -22,13 +22,9 @@ export const RegisterPage = () => {
   }, [userIsLogged, navigate, hasRedirected]);
 
   return (
-    <div className={styles.registerPageContainer}>
-      <img
-        className={styles.registerImage}
-        src={registerImage}
-        alt="Register"
-      />
-      <div className={styles.registerFormContainer}>
+    <div className={style.registerPageContainer}>
+      <img className={style.registerImage} src={registerImage} alt="Register" />
+      <div className={style.registerFormContainer}>
         <Register />
       </div>
     </div>
