@@ -48,7 +48,9 @@
   margin-bottom: 10px;
   color: #fff;
 }
-
+.homeDescription {
+  width: 300px;
+}
 .buttonContainer {
   display: flex;
   justify-content: center;
@@ -71,4 +73,9 @@
 .loginButton:hover,
 .registerButton:hover {
   background-color: #2ecc71;
+}
+@media (min-width: 678px) {
+  .homeDescription {
+    width: 640px;
+  }
 }
