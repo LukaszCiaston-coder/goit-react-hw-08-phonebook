@@ -76,5 +76,5 @@ input::placeholder {
   color: #fffdfd;
 }
 .toRegister:hover {
-  font-size: 18px; /* Możesz dostosować rozmiar czcionki według swoich preferencji */
+  font-size: 18px;
 }

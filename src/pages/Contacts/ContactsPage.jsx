@@ -5,7 +5,7 @@ import { ContactList } from '../../components/ContactList/ContactList';
 import Filter from '../../components/Filter/Filter';
 import { fetchContacts } from '../../redux/Contacts/Actions';
 import { Loader } from '../../components/Loader/Loader';
-import style from './Contacts.module.css';
+import style from './ContactsPage.module.css';
 
 export const Contacts = () => {
   const dispatch = useDispatch();

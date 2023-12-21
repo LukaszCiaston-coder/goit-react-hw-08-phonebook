@@ -7,8 +7,16 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
+.contactImage {
+  width: 100%; /* Set the width to 100% to make it equal to the container width */
+
+  border-radius: 5px; /* Optional: Add border-radius to match the container */
+  margin-top: 10px;
+  display: none; /* Adjust margin as needed */
+}
 .contactInput {
   flex: 1;
   padding: 8px;
@@ -45,8 +53,18 @@
 .contactButton:hover {
   background-color: rgba(46, 204, 113, 0.8);
 }
+@media (min-width: 678px) and (max-width: 1199px) {
+  .contactImage {
+    display: block;
+    height: 250px;
+  }
+}
 @media (min-width: 1200px) {
   .contactAdd {
     width: 500px;
+  }
+  .contactImage {
+    display: block;
+    height: 250px;
   }
 }

@@ -1,0 +1,27 @@
+/* Pagination.module.css */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.pageItem {
+  margin: 0 5px;
+}
+
+.pageButton {
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  background-color: #007bff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.pageButton:hover {
+  background-color: #2ecc71;
+}

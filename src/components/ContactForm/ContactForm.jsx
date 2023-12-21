@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useRef } from 'react';
-
+import contactFormImage from '../../images/contacts.jpg';
 import { addContact } from '../../redux/Contacts/Actions';
 import { getContacts } from '../../redux/Contacts/Selectors';
 import style from './ContactForm.module.css';
@@ -91,6 +91,11 @@ const ContactForm = () => {
           Add contact
         </button>
       </form>
+      <img
+        className={style.contactImage}
+        src={contactFormImage}
+        alt="Contact Form Illustration"
+      />
     </div>
   );
 };

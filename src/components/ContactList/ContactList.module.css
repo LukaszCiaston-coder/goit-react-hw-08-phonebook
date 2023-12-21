@@ -15,28 +15,3 @@
   list-style: none;
   padding: 0;
 }
-
-.list ul li {
-  font-size: 16px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding-bottom: 5px;
-}
-
-.list ul li button {
-  padding: 5px 10px;
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.list ul li button:hover {
-  background-color: #c82333;
-}

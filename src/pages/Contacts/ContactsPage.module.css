@@ -1,5 +1,7 @@
 .contactsContainer {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -11,10 +13,11 @@
 .errorMessage {
   color: red;
 }
-@media (min-width: 1200px) {
+@media (min-width: 678px) {
   .contactsContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    gap: 10px;
   }
 }
